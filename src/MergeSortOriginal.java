@@ -1,4 +1,4 @@
-public class MergeSort {
+public class MergeSortOriginal {
     public static void sortIt(int[] anyArray, int start, int end) {
         if (start < end) {
             int mid = start + (end - start) / 2;
