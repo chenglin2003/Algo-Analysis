@@ -1,4 +1,5 @@
 
+
 public class HybridSort {
     static final int S = 124; // switch to insertion sort if array size smaller than S
 
@@ -10,11 +11,11 @@ public class HybridSort {
             sortIt(arr, start, mid);
             sortIt(arr, mid + 1, end);
 
-            merge(arr, start, mid, end);
+            hybridmerge(arr, start, mid, end);
         }
     }
 
-    public static void merge(int[] arr, int start, int mid, int end) {
+    public static void hybridmerge(int[] arr, int start, int mid, int end) {
         if (arr.length <= S) {
             InsertionSort.sortIt(arr, start, end);
         } else {
@@ -51,6 +52,5 @@ public class HybridSort {
                 k++;
             }
         }
-
     }
 }
