@@ -35,42 +35,42 @@ public class HybridSortTime {
         return result;
     }
 
-    public static long[] keyCmpwithInputTest() {
-        // S fixed, number of key comparisons over different sizes of input size:
-        int count = 0;
-        long[] keyCmpArr = new long[10000];
-        for (int i = 10000; i <= 10000000; i += 10000) {
-            long average = 0;
-            for (int j = 0; j < 5; j++) {
-                keyCmp = 0;
-                int[] testArr = GenerateInput.generateRandom(i, TEST_VALUE);
-                hybridSortIt(testArr, 0, testArr.length - 1);
-                average += keyCmp;
-            }
-            keyCmpArr[count++] = average / 5;
-            System.out.println("Generating keyCmp against input results... " + count+ " Current value is "+keyCmpArr[count-1]);
-        }
-        return keyCmpArr;
-    }
+    // public static long[] keyCmpwithInputTest() {
+    //     // S fixed, number of key comparisons over different sizes of input size:
+    //     int count = 0;
+    //     long[] keyCmpArr = new long[10000];
+    //     for (int i = 10000; i <= 10000000; i += 10000) {
+    //         long average = 0;
+    //         for (int j = 0; j < 5; j++) {
+    //             keyCmp = 0;
+    //             int[] testArr = GenerateInput.generateRandom(i, TEST_VALUE);
+    //             hybridSortIt(testArr, 0, testArr.length - 1);
+    //             average += keyCmp;
+    //         }
+    //         keyCmpArr[count++] = average / 5;
+    //         System.out.println("Generating keyCmp against input results... " + count+ " Current value is "+keyCmpArr[count-1]);
+    //     }
+    //     return keyCmpArr;
+    // }
 
-    public static long[] keyCmpwithSTest() {
-        // input size fixed,test for different value of S
-        int count = 0;
-        long[] keyCmpArr = new long[1000];
-        for (int i = 0; i < 1000; i += 1) {
-            S = i;
-            long average = 0;
-            for (int j = 0; j < 100; j++) {
-                keyCmp = 0;
-                int[] testArr = GenerateInput.generateRandom(1000, 1000);
-                hybridSortIt(testArr, 0, testArr.length - 1);
-                average += keyCmp;
-            }
-            keyCmpArr[count++] = average / 100;
-            System.out.println("Generating keyCmp against S results... " + count);
-        }
-        return keyCmpArr;
-    }
+    // public static long[] keyCmpwithSTest() {
+    //     // input size fixed,test for different value of S
+    //     int count = 0;
+    //     long[] keyCmpArr = new long[1000];
+    //     for (int i = 0; i < 1000; i += 1) {
+    //         S = i;
+    //         long average = 0;
+    //         for (int j = 0; j < 100; j++) {
+    //             keyCmp = 0;
+    //             int[] testArr = GenerateInput.generateRandom(1000, 1000);
+    //             hybridSortIt(testArr, 0, testArr.length - 1);
+    //             average += keyCmp;
+    //         }
+    //         keyCmpArr[count++] = average / 100;
+    //         System.out.println("Generating keyCmp against S results... " + count);
+    //     }
+    //     return keyCmpArr;
+    // }
 
     public static void hybridSortIt(int[] arr, int start, int end) {
         if (start < end) {
