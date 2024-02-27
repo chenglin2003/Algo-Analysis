@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.util.Arrays;
+
 public class MergeSortTime {
     static int keyCmp;
 
@@ -80,8 +83,35 @@ public class MergeSortTime {
 
     }
 
-    public static void main(String[] args) {
-        getMergeSortKeyCmpandTime();
+    public static long[] keyCmpwithMerge() {
+        // merge sort
+        int count = 0;
+        long[] keyCmpArr = new long[300];
+        for (int i = 0; i < 300; i += 1) {
+            long average = 0;
+            for (int j = 0; j < 10000; j++) {
+                keyCmp = 0;
+                int[] testArr = GenerateInput.generateRandom(i, 1000);
+                sortIt(testArr, 0, testArr.length - 1);
+                average += keyCmp;
+            }
+            keyCmpArr[count++] = average / 10000;
+            System.out.println("Generating keyCmp-Merge results... " + count);
+        }
+        return keyCmpArr;
+    }
+
+    public static void generateTestResults() throws IOException {
+        // part ciii:
+        long[] test4Result = keyCmpwithMerge();
+        System.out.println("Test 4: " + Arrays.toString(test4Result));
+        makeCSV.CSVprinter(test4Result, "test4.csv");
+    }
+
+    public static void main(String[] args) throws IOException {
+        //getMergeSortKeyCmpandTime();
+        generateTestResults();
+        
     }
 }
 
