@@ -122,13 +122,13 @@ public class HybridSortKeyComparisons {
         for (int i = 0; i < 300; i += 1) {
             S = -1;
             long average = 0;
-            for (int j = 0; j < 10000; j++) {
+            for (int j = 0; j < 50000; j++) {
                 keyComp = 0;
                 int[] testArr = GenerateInput.generateRandom(i, 1000);
                 hybridSortIt(testArr, 0, testArr.length - 1);
                 average += keyComp;
             }
-            keyCmpArr[count++] = average / 10000;
+            keyCmpArr[count++] = average / 50000;
             System.out.println("Generating keyCmp-Merge results... " + count);
         }
         return keyCmpArr;
