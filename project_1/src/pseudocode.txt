@@ -1,0 +1,20 @@
+
+
+hybridSort(list){
+    Partition list into two (approx.) equal sized lists, L1 & L2;
+    hybridSort (L1);
+	hybridSort (L2);
+	hybridMerge(L1,L2);
+    // merge smallest of each side into results
+}
+
+hybridMerge(L1,L2){
+    if(list.length<=S){
+        // Switch to InsertionSort if arrays are smaller than S
+        // Arrays will be size n/S
+        InsertionSort(list);
+
+    }else{
+        MergeSortOriginal(list);
+    }
+}
